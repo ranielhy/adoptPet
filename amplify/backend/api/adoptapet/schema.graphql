@@ -1,0 +1,19 @@
+type Owner @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  email: AWSEmail!
+}
+
+enum PetType {
+  CAT
+  DOG
+}
+
+type Pet @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  description: String
+  photo: AWSURL!
+  petType: PetType
+  Owner: Owner @hasOne
+}
