@@ -13,6 +13,7 @@ import {
 function App() {
   return (
     <div className="App">
+      <p>Teste</p>
      <PetCollection />
     </div>
   );
