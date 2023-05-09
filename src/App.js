@@ -13,7 +13,7 @@ import {
 function App() {
   return (
     <div className="App">
-     <PetCollection />
+     <h1>Produção</h1>
     </div>
   );
 }
