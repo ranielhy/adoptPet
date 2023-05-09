@@ -20,7 +20,7 @@ import { DataStore } from "aws-amplify";
 export default function PetUpdateForm(props) {
   const {
     id: idProp,
-    pet,
+    pet: petModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -33,7 +33,7 @@ export default function PetUpdateForm(props) {
     name: "",
     description: "",
     photo: "",
-    petType: undefined,
+    petType: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [description, setDescription] = React.useState(
@@ -52,14 +52,14 @@ export default function PetUpdateForm(props) {
     setPetType(cleanValues.petType);
     setErrors({});
   };
-  const [petRecord, setPetRecord] = React.useState(pet);
+  const [petRecord, setPetRecord] = React.useState(petModelProp);
   React.useEffect(() => {
     const queryData = async () => {
-      const record = idProp ? await DataStore.query(Pet, idProp) : pet;
+      const record = idProp ? await DataStore.query(Pet, idProp) : petModelProp;
       setPetRecord(record);
     };
     queryData();
-  }, [idProp, pet]);
+  }, [idProp, petModelProp]);
   React.useEffect(resetStateValues, [petRecord]);
   const validations = {
     name: [{ type: "Required" }],
@@ -273,7 +273,7 @@ export default function PetUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || pet)}
+          isDisabled={!(idProp || petModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -285,7 +285,8 @@ export default function PetUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || pet) || Object.values(errors).some((e) => e?.hasError)
+              !(idProp || petModelProp) ||
+              Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}
           ></Button>

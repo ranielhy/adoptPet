@@ -32,7 +32,7 @@ export default function PetCreateForm(props) {
     name: "",
     description: "",
     photo: "",
-    petType: undefined,
+    petType: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [description, setDescription] = React.useState(
