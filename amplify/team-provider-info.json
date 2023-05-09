@@ -1,4 +1,22 @@
 {
+  "producao": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-adoptapet-producao-165730-authRole",
+      "UnauthRoleArn": "arn:aws:iam::199874720113:role/amplify-adoptapet-producao-165730-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::199874720113:role/amplify-adoptapet-producao-165730-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-adoptapet-producao-165730-deployment",
+      "UnauthRoleName": "amplify-adoptapet-producao-165730-unauthRole",
+      "StackName": "amplify-adoptapet-producao-165730",
+      "StackId": "arn:aws:cloudformation:us-east-1:199874720113:stack/amplify-adoptapet-producao-165730/9630ee00-ee8a-11ed-b256-0ec3f1b8ebaf",
+      "AmplifyAppId": "d22nqukd0od9nz"
+    },
+    "categories": {
+      "auth": {
+        "adoptapet253a6624": {}
+      }
+    }
+  },
   "staging": {
     "awscloudformation": {
       "AuthRoleName": "amplify-adoptapet-staging-170753-authRole",
